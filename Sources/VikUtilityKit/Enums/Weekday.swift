@@ -24,6 +24,10 @@ public enum Weekday: Int, CaseIterable {
         return ["Sun": 1, "Mon": 2, "Tue": 3, "Wed": 4, "Thu": 5, "Fri": 6, "Sat": 7]
     }
     
+    public static var allKnownCases: [Weekday] {
+        Weekday.allCases.filter{ $0 != .unknown }
+    }
+    
     //TODO: Docstrings
     public var buttonText: String {
         switch self {
@@ -44,6 +48,12 @@ public enum Weekday: Int, CaseIterable {
         case .unknown:
             return "Unk"
         }
+    }
+    
+    public var rfc5545Value: String {
+        var buttonText = self.buttonText
+        buttonText.removeLast()
+        return buttonText.uppercased()
     }
     
     //TODO: Docstrings

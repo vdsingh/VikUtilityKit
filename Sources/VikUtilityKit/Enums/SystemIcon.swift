@@ -11,14 +11,36 @@ import UIKit
 
 /// Represents system icons.
 public enum SystemIcon: String, CaseIterable {
+    case tree
+    case treeFill = "tree.fill"
+    case paragraphSign = "paragraphsign"
+    case link
+    case paperclip
+    case trashCan = "trash.fill"
+    case trashCanCircleFill = "trash.circle.fill"
+    case listClipboard = "list.clipboard"
+    case listClipboardFill = "list.clipboard.fill"
+    case calendar
+    case calendarExclamation = "calendar.badge.exclamationmark"
+    case calendarClock = "calendar.badge.clock"
+    case clock
+    case clockFill = "clock.fill"
+    case circle
+    case circleFill = "circle.fill"
+    case circleCheckmarkFill = "checkmark.circle.fill"
+    case dumbbell
+    case dumbbellFill = "dumbbell.fill"
+    case book
+    case bookFill = "book.fill"
     case plus
     case minus
+    case minusCircle = "minus.circle.fill"
     case multiply
     case divide
     case function
     case pencil
+    case pencilCircleFill = "pencil.circle.fill"
     case folder
-    case book
     case eye
     case film
     case lightbulb
@@ -57,6 +79,7 @@ public enum SystemIcon: String, CaseIterable {
     case wrenchAndScrewdriver = "wrench.and.screwdriver"
     case gearshape
     case graduationcap
+    case exclamationmarkCircle = "exclamationmark.circle"
     case a = "a.circle"
     case b = "b.circle"
     case c = "c.circle"
@@ -95,12 +118,15 @@ public enum SystemIcon: String, CaseIterable {
     case ten = "10.circle"
     case chevronUp = "chevron.up"
     case chevronDown = "chevron.down"
+    case chevronRight = "chevron.right"
     
     //TODO: Docstrings
     public func createImage(withConfiguration configuration: UIImage.Configuration = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .large)
 ) -> UIImage {
+        
         guard let image = UIImage(systemName: self.rawValue, withConfiguration: configuration) else {
-            fatalError("$ERR: couldn't create image from systemName String: \(self.rawValue)")
+            return .actions
+//            fatalError("$ERR: couldn't create image from systemName String: \(self.rawValue)")
         }
         
         return image

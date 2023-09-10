@@ -11,4 +11,8 @@ import Foundation
 public enum DateFormat: String {
     case standardTime = "h:mm a"
     case fullDateWithTime = "MMM d, h:mm a"
+    
+    public var formatString: String {
+        return self.rawValue
+    }
 }
